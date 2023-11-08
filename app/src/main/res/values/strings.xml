@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MrsuApp</string>
+    <string name="pass_holder">Пароль</string>
+    <string name="login_button">Войти</string>
+    <string name="name_holder">Имя</string>
+    <string name="login_title">Зайти в аккаунт</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
