@@ -16,6 +16,10 @@ interface MrsuApi {
     suspend fun getToken(@Field("grant_type") grantType: String = "password",
                          @Field("username") username: String,
                          @Field("password") password: String) : MrsuToken
+    @FormUrlEncoded
+    @POST("OAuth/token")
+    suspend fun refreshToken(@Field("grant_type") grantType: String = "refresh_token",
+                             @Field("refresh_token") refreshToken: String) : MrsuToken
 
     companion object {
         private const val BASE_URL = "https://p.mrsu.ru/"

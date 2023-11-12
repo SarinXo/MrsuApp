@@ -15,7 +15,7 @@ import kotlinx.coroutines.withContext
 
 class SignInActivity : AppCompatActivity() {
 
-    private val tokenManager = TokenManager(MrsuApi.create())
+    private val tokenManager = TokenManager.getInstance(MrsuApi.create())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,16 +36,11 @@ class SignInActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             try {
                 val accessToken = withContext(Dispatchers.IO) {
-                    tokenManager.getAccessToken(login, password)
+                    tokenManager.initToken(login, password)
                 }
-                if (accessToken.isNotEmpty()) {
-
-                    val intent = Intent(this@SignInActivity, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this@SignInActivity, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
-                }
+                val intent = Intent(this@SignInActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(this@SignInActivity, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
