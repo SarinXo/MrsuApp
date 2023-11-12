@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.mrsuapp.databinding.FragmentDashboardBinding
+import com.example.mrsuapp.databinding.FragmentTimetableBinding
 
 class DashboardFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentTimetableBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,13 +25,13 @@ class DashboardFragment : Fragment() {
         val dashboardViewModel =
             ViewModelProvider(this).get(DashboardViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentTimetableBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+       /* val textView: TextView = binding.tex
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
-        }
+        }*/
         return root
     }
 
