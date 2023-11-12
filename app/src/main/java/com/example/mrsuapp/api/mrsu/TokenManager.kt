@@ -1,28 +1,25 @@
 package com.example.mrsuapp.api.mrsu
 
-import com.example.loginapp.activity.logic.auth.retrofit.api.MrsuApi
-import com.example.loginapp.activity.logic.auth.retrofit.dto.MrsuToken
-import com.example.mrsuapp.api.mrsu.dto.HttpClient
+import com.example.mrsuapp.api.mrsu.dto.MrsuToken
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.FormBody
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
 import java.io.IOException
 
 class TokenManager(private val api: MrsuApi) {
     private var mrsuToken: MrsuToken? = null
-    private var username: String? = null
-    private var password: String? = null
 
     suspend fun getAccessToken(username: String, password: String): String {
         if (mrsuToken == null) {
             mrsuToken = api.getToken(username = username, password = password)
-        }else{
-            mrsuToken = refreshToken()
         }
+/*
+        else if(){
+            mrsuToken = refreshToken()
+        }*/
         return mrsuToken!!.accessToken
     }
 
@@ -55,9 +52,7 @@ class TokenManager(private val api: MrsuApi) {
         }
     }
 
-    fun clearTokens() {
+    fun clearToken() {
         mrsuToken = null;
-        username = null;
-        password = null;
     }
 }

@@ -1,7 +1,5 @@
-package com.example.mrsuapp.api.mrsu.dto
+package com.example.mrsuapp.api.mrsu
 
-import com.example.loginapp.activity.logic.auth.retrofit.api.MrsuApi
-import com.example.loginapp.activity.logic.auth.retrofit.api.MrsuPapi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
