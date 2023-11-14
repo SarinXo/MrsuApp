@@ -15,8 +15,6 @@ import kotlinx.coroutines.withContext
 
 class SignInActivity : AppCompatActivity() {
 
-    private val tokenManager = TokenManager.getInstance(MrsuApi.create())
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin)
@@ -29,6 +27,7 @@ class SignInActivity : AppCompatActivity() {
             val login = loginEditText.text.toString()
             val password = passwordEditText.text.toString()
             authentication(login, password)
+
         }
     }
 
@@ -36,7 +35,8 @@ class SignInActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             try {
                 val accessToken = withContext(Dispatchers.IO) {
-                    tokenManager.initToken(login, password)
+                    val tokenManager = TokenManager()
+                    tokenManager.authenticate(login, password)
                 }
                 val intent = Intent(this@SignInActivity, MainActivity::class.java)
                 startActivity(intent)
