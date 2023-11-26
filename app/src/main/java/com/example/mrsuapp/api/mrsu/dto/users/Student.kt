@@ -1,5 +1,6 @@
-package com.example.loginapp.activity.logic.auth.retrofit.dto
+package com.example.mrsuapp.api.mrsu.dto.users
 
+import com.example.loginapp.activity.logic.auth.retrofit.dto.RecordBooks
 import com.google.gson.annotations.SerializedName
 import java.util.Date
 

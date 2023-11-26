@@ -1,4 +1,4 @@
-package com.example.loginapp.activity.logic.auth.retrofit.dto
+package com.example.mrsuapp.api.mrsu.dto.auth
 
 import com.google.gson.annotations.SerializedName
 

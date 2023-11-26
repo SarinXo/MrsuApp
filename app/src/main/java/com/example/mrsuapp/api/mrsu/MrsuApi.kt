@@ -1,6 +1,6 @@
 package com.example.mrsuapp.api.mrsu
 
-import com.example.mrsuapp.api.mrsu.dto.MrsuToken
+import com.example.mrsuapp.api.mrsu.dto.auth.MrsuToken
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
